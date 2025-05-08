@@ -1,0 +1,6 @@
+{
+    "explorer.expandSingleFolderWorkspaces": false,
+    "explorer.autoReveal": false,
+    "explorer.fileNesting.expand": false,
+    "workbench.tree.expandMode": "doubleClick"
+}
