@@ -12,7 +12,9 @@ html, body{
     font-size: 25px;
 }
 
-.card-game {
+.card-game{
+    position: relative;
     width: 150px;
-    
+    left: 100px;
+    margin-left: -75px;
 }
