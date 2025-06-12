@@ -14,6 +14,8 @@ const computerCards = document.querySelector('#computer-cards')
 let playerPoints = 0;
 let computerPoints = 0;
 
+// Deck functions
+
 const buildDeck = () => {
 
     deck = [];
