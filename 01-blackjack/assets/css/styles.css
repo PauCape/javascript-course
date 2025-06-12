@@ -1,10 +1,10 @@
-html, body{
+html, body {
     margin: 0px;
     background-color: #2f4f30;
     color: white;
 }
 
-.title{
+.title {
     text-align: center;
     background-color: black;
     color: white;
@@ -12,9 +12,13 @@ html, body{
     font-size: 25px;
 }
 
-.card-game{
+.card-game {
     position: relative;
     width: 150px;
     left: 100px;
     margin-left: -75px;
+}
+
+#player-cards, #computer-cards{
+    height: 250px;
 }
