@@ -16,6 +16,8 @@ let computerPoints = 0;
 
 const buildDeck = () => {
 
+    deck = [];
+
     for (let index = 2; index <= 10; index++) {
         for (const type of cardTypes) {
             deck.push(index + type)
@@ -72,9 +74,60 @@ btnCard.addEventListener('click', () => {
 
     playerPointsHtml.innerText = playerPoints;
 
-    
+    const imgCard = document.createElement('img');
+    imgCard.src = `assets/cards/${card}.png`;
+    imgCard.classList.add('card-game')
 
+    playerCards.append(imgCard);
+
+    if (playerPoints > 21) {
+        btnCard.disabled = true;
+    } else if (playerPoints === 21) {
+        btnCard.disabled = true;
+        console.log("Player Wins");
+    }
 });
 
+btnStop.addEventListener('click', () => {
+
+    btnStop.disabled = true;
+
+    while (computerPoints < playerPoints) {
+
+        const card = takeCard();
+    
+        computerPoints = computerPoints + cardValue(card);
+    
+        computerPointsHtml.innerText = computerPoints;
+
+        const imgCard = document.createElement('img');
+        imgCard.src = `assets/cards/${card}.png`;
+        imgCard.classList.add('card-game')
+    
+        computerCards.append(imgCard);
+
+        if (computerPoints === 21) {
+            btnCard.disabled = true;
+            console.log("Computer Wins");
+        }
+    }
+});
+
+btnNewGame.addEventListener('click', () => {
+
+    buildDeck();
+
+    playerPoints = 0;
+    playerPointsHtml.innerText = playerPoints;
+    computerPoints = 0;
+    computerPointsHtml.innerText = computerPoints;
+
+    btnStop.disabled = false;
+    btnCard.disabled = false;
+
+    playerCards.innerHTML = '';
+    computerCards.innerHTML = '';
+
+});
 
 buildDeck();
