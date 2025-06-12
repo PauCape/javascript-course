@@ -17,10 +17,39 @@ const buildDeck = () => {
         }
     }
 
-    console.log(deck);
     deck = _.shuffle(deck);
-    console.log(deck);
 
+}
+
+const takeCard = () => {
+
+    if (deck.length === 0) {
+        throw 'There are not cards in deck' 
+    }
+
+    const card = deck.pop();
+    return card;
+
+}
+
+const cardValue = (card) => {
+
+    const value = card.substring(0, card.length - 1);
+
+    let points = 0;
+
+    if (isNaN(value)) {
+
+        if (value === 'A') {
+            points = 11;
+        } else {
+            points = 10;
+        }
+        
+    } else {
+        points = value * 1;
+    }
+    
 }
 
 buildDeck();
