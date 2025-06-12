@@ -3,6 +3,17 @@ let deck = [];
 const cardTypes = ['C', 'D', 'H', 'S'];
 const specialCards = ['A', 'J', 'Q', 'K'];
 
+const btnCard = document.querySelector('#btnCard');
+const btnNewGame = document.querySelector('#btnNewGame');
+const btnStop = document.querySelector('#btnStop');
+const playerPointsHtml = document.querySelector('#playerPoints');
+const computerPointsHtml = document.querySelector('#computerPoints');
+const playerCards = document.querySelector('#player-cards')
+const computerCards = document.querySelector('#computer-cards')
+
+let playerPoints = 0;
+let computerPoints = 0;
+
 const buildDeck = () => {
 
     for (let index = 2; index <= 10; index++) {
@@ -18,7 +29,6 @@ const buildDeck = () => {
     }
 
     deck = _.shuffle(deck);
-
 }
 
 const takeCard = () => {
@@ -29,7 +39,6 @@ const takeCard = () => {
 
     const card = deck.pop();
     return card;
-
 }
 
 const cardValue = (card) => {
@@ -49,7 +58,23 @@ const cardValue = (card) => {
     } else {
         points = value * 1;
     }
-    
+
+    return points;
 }
+
+// Events
+
+btnCard.addEventListener('click', () => {
+    
+    const card = takeCard();
+    
+    playerPoints = playerPoints + cardValue(card);
+
+    playerPointsHtml.innerText = playerPoints;
+
+    
+
+});
+
 
 buildDeck();
